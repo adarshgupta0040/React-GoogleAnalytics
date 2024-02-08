@@ -7,7 +7,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ReactGA from "react-ga4";
 
-ReactGA.initialize("G-3PNGQD9PNM");
+ReactGA.initialize("G-L2HF8D3RNJ");
 
 // ReactGA.send({ hitType: "pageview", page: "/my-path", title: "Custom Title" });
 const root = ReactDOM.createRoot(document.getElementById('root'));
