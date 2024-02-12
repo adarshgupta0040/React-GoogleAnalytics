@@ -1,6 +1,8 @@
 // src/App.js
 import React, { useState } from 'react';
 import { users } from './users';
+import useGAEventTracker from './useGAEventTracker';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -28,11 +30,25 @@ function App() {
     setError('');
   };
 
+  const github = "https://github.com/adarshgupta0040";
+  const GAEventsTracker = useGAEventTracker("External Links");
+
   return (
     <div className="App">
       {isLoggedIn ? (
         <div>
           <h1>Welcome, {currentUser.name}</h1>
+
+          <footer class="footer">
+            <button>
+              <a href={github}
+                target="_blank" rel="noreferrer" class="github-link" onClick={(e) =>
+                  GAEventsTracker("Github Page Visit", github)
+              }>
+                GitHub Repository 
+              </a>
+            </button>
+          </footer>
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
@@ -50,6 +66,7 @@ function App() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
+
           <button onClick={handleLogin}>Login</button>
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </div>
