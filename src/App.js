@@ -31,6 +31,7 @@ function App() {
   };
 
   const github = "https://github.com/adarshgupta0040";
+  const Linkedin = "https://www.linkedin.com/in/adarsh-gupta-537ba718a/"
   const GAEventsTracker = useGAEventTracker("External Links");
 
   return (
@@ -44,11 +45,22 @@ function App() {
               <a href={github}
                 target="_blank" rel="noreferrer" class="github-link" onClick={(e) =>
                   GAEventsTracker("Github Page Visit", github)
-              }>
-                GitHub Repository 
+                }>
+                GitHub Repository
+              </a>
+            </button>
+            <br />
+            <br />
+            <button>
+              <a href={Linkedin}
+                target="_blank" rel="noreferrer" class="linkedin-link" onClick={(e) =>
+                  GAEventsTracker("Linkedin Profile Visit", Linkedin)
+                }>
+                Linkedin Profile
               </a>
             </button>
           </footer>
+          <br />
           <button onClick={handleLogout}>Logout</button>
         </div>
       ) : (
